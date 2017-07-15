@@ -2,7 +2,7 @@
 Editor online
 
 # LibExt (Librerias externas)
-codeMirror
-Jquery
-Bootstrap
+codeMirror,
+Jquery,
+Bootstrap,
 js-cookie
