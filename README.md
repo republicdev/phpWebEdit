@@ -1,7 +1,7 @@
 # phpWebEdit
 Editor online
 
-![Pantalla](/screen_web.png?raw=true "Pantalla")
+![Pantalla](/screenweb.png?raw=true "Pantalla")
 
 # LibExt (Librerias externas)
 codeMirror,
