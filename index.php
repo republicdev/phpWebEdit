@@ -20,7 +20,7 @@
 		,"saving"		=> "Guardando"
 		,"getting"		=> "Obteniendo"
 		,"formatDate"	=> "d/m/Y H:i:s"	
-		,"placeholder" => "nombreArchivo.ext o ruta/a/nombreArchivo.ext o ../../ruta/a/nombreArchivo.ext donde esta incluido phpCodeEdit"
+		,"placeholder" => "nombreArchivo.ext o ruta/a/nombreArchivo.ext o ../../ruta/a/nombreArchivo.ext donde esta incluido phpWebEdit"
 		,"history"		=> "Historial"
 		,"backups"		=> "Cant. backups"
 		,"theme"		=> "Cambiar Tema"		
@@ -43,7 +43,7 @@
 		,"saving"		=> "Saving"
 		,"getting"		=> "Getting"
 		,"formatDate"	=> "Y-m-d H:i:s"		
-		,"placeholder" => "fileName.ext or path/to/fileName.ext or ../../path/to/fileName.ext where include phpCodeEdit"		
+		,"placeholder" => "fileName.ext or path/to/fileName.ext or ../../path/to/fileName.ext where include phpWebEdit"		
 		,"history"		=> "History"
 		,"backups"		=> "Count backups"
 		,"theme"		=> "Change Theme"				
@@ -59,20 +59,20 @@
 	$mode			= "application/x-httpd-php";
 	
 	if( isset( $_GET['logout'] ) ) {
-		unset($_SESSION["phpCodeEdit_LOG"]);
-		unset($_SESSION["phpCodeEdit_LANG"]);		
+		unset($_SESSION["phpWebEdit_LOG"]);
+		unset($_SESSION["phpWebEdit_LANG"]);		
 		session_destroy();
 	}
 	
 	if( isset( $_POST['btnLogin'] ) ) {
 		if( $_POST["pss"] == $codeSecret) {
-			$_SESSION["phpCodeEdit_LOG"] = true;
-			$_SESSION["phpCodeEdit_LANG"] = ( $_POST[ "selLang" ] == "ES" ) ? "ES" : "EN";			
+			$_SESSION["phpWebEdit_LOG"] = true;
+			$_SESSION["phpWebEdit_LANG"] = ( $_POST[ "selLang" ] == "ES" ) ? "ES" : "EN";			
 		}
 	}
 
-	if ( isset( $_SESSION["phpCodeEdit_LOG"] ) ) {
-		$lang = ( $_SESSION["phpCodeEdit_LANG"] == "EN" ) ? $lang_en : $lang_es;		
+	if ( isset( $_SESSION["phpWebEdit_LOG"] ) ) {
+		$lang = ( $_SESSION["phpWebEdit_LANG"] == "EN" ) ? $lang_en : $lang_es;		
 		$userLog = true;
 		$file = isset( $_GET['file'] ) ? $_GET['file'] : null;
 		if ( isset( $_POST['getFile'] ) ) {
@@ -180,7 +180,7 @@
 			}
 		}
 
-	} // end phpCodeEdit_LOG
+	} // end phpWebEdit_LOG
 ?>
 
 <html>
