@@ -186,7 +186,8 @@
 <html>
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />		
-		
+		<meta name="robots" content="noindex">
+
 		<title><?=$projectName;?> - <?=stripslashes($file)?></title>
 		
         <link rel="stylesheet" href="LibExt/codemirror/lib/codemirror.css">
