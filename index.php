@@ -156,10 +156,13 @@
 				if ( $extension == "sql" ) 	{ $mode = "text/x-sql"; 			}
 
 				$lastUpdateFile	= date ( $lang[ "formatDate" ], filemtime( $file ) );	
-				$file_aux = explode("-",$file);
-				$file_aux = $file_aux[0];
+				$file_aux = explode("/",$file);
+				$index = 0;
+				if ( count( $file_aux ) > 1 )
+					$index = count( $file_aux ) - 1;
+				$file_aux = $file_aux[$index];
 				$filesNames = '- <a href="index.php?file='.$file_aux.'">'.$file_aux.'</a><br>';			
-				foreach (glob($file_aux . "-*.backup") as $file_name) {
+				foreach (glob($file . "-*.backup") as $file_name) {
 					$lastUpdateFileN	= date ( $lang[ "formatDate" ], filemtime( $file_name ) );
 					$filesNames .= '- <a href="index.php?file='.$file_name.'">'.$file_name.'</a> <small>('. $lastUpdateFileN .')</small><br>';
 					$countBackup++;				
@@ -476,7 +479,7 @@
 			</small>
 			<?php } ?>			
 			<div class="footer text-right text-muted">
-				<small><a href="https://github.com/republicdev/<?=$projectName;?>" target="_blank"><?=$projectName;?></a> - VerDate 1407.017</small>
+				<small><a href="https://github.com/republicdev/phpWebEdit"><?=$projectName;?></a> - VerDate 1407.017</small>
 				<?php if ( $userLog == true ) { ?>					
 					| <small><a href="?logout" id="btnLogout"><?=$lang["logout"];?></a></small>				
 				<?php } ?>							
