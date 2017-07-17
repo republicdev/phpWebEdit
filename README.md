@@ -5,6 +5,8 @@ Donde aloje phpWebEdit, podrás modificar, restaurar o crear un archivo según l
 
 Antes de acceder al editor debe ingresar una clave secreta, la misma la puede visualizar en el código. En este caso es 1234.
 
+ ![Pantalla](/screenweb.png?raw=true "Pantalla")
+
 # LibExt (Librerias externas)
 codeMirror,
 Jquery,
