@@ -142,7 +142,10 @@
 		if ( file_exists( $file ) ) {
 			$fileNotExist 	= 0;
 			$fileInfo 		= pathinfo($file);
-			if ( isset ( $fileInfo[ "extension" ] ) ) {
+			$existExt		= isset ( $fileInfo[ "extension" ] );
+			$existExt		= $existExt ? ( $fileInfo[ "extension" ] != "" ) : false;
+			
+			if ( $existExt ) {
 				$extension		= $fileInfo[ "extension" ];
 				$extension		= strtolower($extension);
 
@@ -151,7 +154,6 @@
 				if ( $extension == "xml" ) 	{ $mode = "application/xml"; 	}
 				if ( $extension == "html" ) 	{ $mode = "text/html"; 			}
 				if ( $extension == "sql" ) 	{ $mode = "text/x-sql"; 			}
-
 
 				$lastUpdateFile	= date ( $lang[ "formatDate" ], filemtime( $file ) );	
 				$file_aux = explode("-",$file);
@@ -327,7 +329,7 @@
 				themeList.push("3024-day");
 				themeList.push("3024-night");
 				themeList.push("ambiance-mobile");
-				themeList.push("ambiance");
+				themeList.push("ambiance"); // default - 3
 				themeList.push("base16-dark");
 				themeList.push("base16-light");
 				themeList.push("blackboard");
@@ -353,7 +355,7 @@
 				themeList.push("xq-light");
 				themeList.push("zenburn");	
 
-				themeIndex = (Cookies.get('themeIndex') == undefined) ? 0 : Cookies.get('themeIndex');				
+				themeIndex = (Cookies.get('themeIndex') == undefined) ? 3 : Cookies.get('themeIndex');				
 
 				editor.setOption("theme", themeList[themeIndex]);
 				$("#btnTheme").html(themeList[themeIndex]);
@@ -474,7 +476,7 @@
 			</small>
 			<?php } ?>			
 			<div class="footer text-right text-muted">
-				<small><a href="http://github.com/republicdev/<?=$projectName;?>" target="_blank"><?=$projectName;?></a> - VerDate 1407.017</small>
+				<small><a href="https://github.com/republicdev/<?=$projectName;?>" target="_blank"><?=$projectName;?></a> - VerDate 1407.017</small>
 				<?php if ( $userLog == true ) { ?>					
 					| <small><a href="?logout" id="btnLogout"><?=$lang["logout"];?></a></small>				
 				<?php } ?>							
